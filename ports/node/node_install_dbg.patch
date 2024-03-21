@@ -1,0 +1,14 @@
+diff --git a/tools/install.py b/tools/install.py
+index f13f2ecd66..1374808b68 100755
+--- a/tools/install.py
++++ b/tools/install.py
+@@ -143,7 +143,8 @@ def subdir_files(path, dest, action):
+ def files(action):
+   is_windows = sys.platform == 'win32'
+   output_file = 'node'
+-  output_prefix = 'out/Release/'
++  buildtype = os.environ.get('BUILDTYPE', 'Release')
++  output_prefix = f'out/{buildtype}/'
+ 
+   if is_windows:
+     output_file += '.exe'
